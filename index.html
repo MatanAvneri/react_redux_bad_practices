@@ -118,7 +118,7 @@
                     }
                     }
                 }
-	        </code></pre>
+	            </code></pre>
             </section>
             <section>
                 <aside class="notes">Using non immutable functions:</aside>
@@ -126,6 +126,22 @@
                 <p>
                     <a href="https://github.com/mweststrate/immer" target="_blank">immer</a> <br/>
                     <a href="https://facebook.github.io/immutable-js/docs/#/" target="_blank">Immutable.js</a>
+                </p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>State Read</h1>
+                <pre><code data-trim data-noescape>
+                const mapStateToProps = state => ({
+                    environment: state.appReducer.info.environment
+                });
+    	        </code></pre>
+            </section>
+            <section>
+                <h1>State Read</h1>
+                <p>
+                    <a href="https://github.com/reduxjs/reselect" target="_blank">Selectors</a>
                 </p>
             </section>
         </section>
