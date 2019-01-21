@@ -197,29 +197,51 @@
             </section>
             <section>
                 <img src="https://media.giphy.com/media/8cgqFlUYWOdmqmsTbr/giphy.gif" data-no-style>
-                <aside class="notes">Redux passing props to children along so you can’t find the source (why not connect)</aside>
+                <aside class="notes">Redux passing props to children along so you can’t find the source (why not
+                    connect)
+                </aside>
             </section>
         </section>
         <section>
             Incorporating state and connect in the same component
         </section>
         <section>
-            <aside class="notes">Using dispatch without action creators:</aside>
-            <h1>Thunk</h1>
-            <pre><code data-trim data-noescape>
-                export const fetchPayment = ({ paymentId }) => async dispatch => {
-                  dispatch({ type: FETCHING_PAYMENT, payload: true })
+            <section>
+                <aside class="notes">Using dispatch without action creators:</aside>
+                <h1>Thunk</h1>
+                <pre><code data-trim data-noescape>
+                    export const fetchPayment = ({ paymentId }) => async dispatch => {
+                      dispatch({ type: FETCHING_PAYMENT, payload: true })
 
-                  try {
-                    const payment = await PaymentsApi.getPayment(paymentId)
+                      try {
+                        const payment = await PaymentsApi.getPayment(paymentId)
 
-                    dispatch({ type: FETCH_PAYMENT, payload: payment.data });
-                  } catch (error) {
-                    dispatch({ type: FETCH_ERROR, payload: error.message });
-                  }
-                  dispatch({ type: FETCHING_PAYMENT, payload: false })
-                };
-	        </code></pre>
+                        dispatch({ type: FETCH_PAYMENT, payload: payment.data })
+                      } catch (error) {
+                        dispatch({ type: FETCH_ERROR, payload: error.message })
+                      }
+                      dispatch({ type: FETCHING_PAYMENT, payload: false })
+                    };
+                </code></pre>
+            </section>
+            <section>
+                <aside class="notes">Using dispatch without action creators:</aside>
+                <h1>Thunk</h1>
+                <pre><code data-trim data-noescape>
+                    export const fetchPayment = ({ paymentId }) => async dispatch => {
+                      dispatch(actions.fetchingPayment(true))
+
+                      try {
+                        const payment = await PaymentsApi.getPayment(paymentId)
+
+                        dispatch(actions.fetchPaymentSuccess(payment.data))
+                      } catch (error) {
+                        dispatch(actions.fetchPaymentError(error.message))
+                      }
+                      dispatch(actions.fetchingPayment(false))
+                    };
+                </code></pre>
+            </section>
         </section>
         <section>
             <section>
