@@ -42,7 +42,8 @@
 	        </code></pre>
         </section>
         <section>
-            <aside class="notes">Several issues, no default return. No use for a reducer, reducer should have logic</aside>
+            <aside class="notes">Several issues, no default return. No use for a reducer, reducer should have logic
+            </aside>
             <h1>Reducers</h1>
             <pre><code data-trim data-noescape>
                 reducer = (state, action) => {
@@ -76,6 +77,30 @@
                 export function clearField (fieldId) {
                   return { type: 'CLEAR_FIELD', fieldId };
                 }
+	        </code></pre>
+        </section>
+        <section>
+            Redux passing props to children along so you can’t find the source (why not connect)
+        </section>
+        <section>
+            Incorporating state and connect in the same component
+        </section>
+        <section>
+            <aside class="notes">Using dispatch without action creators:</aside>
+            <h1>Thunk</h1>
+            <pre><code data-trim data-noescape>
+                export const fetchPayment = ({ paymentId }) => async dispatch => {
+                  dispatch({ type: FETCHING_PAYMENT, payload: true })
+
+                  try {
+                    const payment = await PaymentsApi.getPayment(paymentId)
+
+                    dispatch({ type: FETCH_PAYMENT, payload: payment.data });
+                  } catch (error) {
+                    dispatch({ type: FETCH_ERROR, payload: error.message });
+                  }
+                  dispatch({ type: FETCHING_PAYMENT, payload: false })
+                };
 	        </code></pre>
         </section>
     </div>
