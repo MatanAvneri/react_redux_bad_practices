@@ -48,6 +48,19 @@
             <section>
                 <img src="https://media.giphy.com/media/3Ot9RtMOfo5ag/giphy.gif"/>
             </section>
+            <section>
+                <h1>React</h1>
+                <pre><code data-trim data-noescape>
+                  render () {
+                    return (
+                        &lt;Comp {...this.props} />
+                    )
+                  }
+	            </code></pre>
+                <aside class="notes">
+                    Need to pass specific props
+                </aside>
+            </section>
         </section>
         <section>
             <section>
@@ -107,9 +120,27 @@
                 reducer = (state, action) => {
                     switch (action.type) {
                     case types.ARRAY_ADD: {
+                        const items = state.items.push(action.item);
                         return {
                             ...state,
-                            items: state.items.push(action.item)
+                            items: items
+                        }
+                    }
+                    }
+                }
+	            </code></pre>
+            </section>
+            <section>
+                <aside class="notes">Using non immutable functions:</aside>
+                <h1>Reducer</h1>
+                <pre><code data-trim data-noescape>
+                reducer = (state, action) => {
+                    switch (action.type) {
+                    case types.ARRAY_ADD: {
+                        const items = [...state.items, action.item];
+                        return {
+                            ...state,
+                            items: items
                         }
                     }
                     }
@@ -152,7 +183,22 @@
             </section>
         </section>
         <section>
-            Redux passing props to children along so you can’t find the source (why not connect)
+            <section>
+                <h1>React/Redux</h1>
+                <pre><code data-trim data-noescape>
+                  render () {
+                    return (
+                        &lt;Comp {...this.props} />
+                    )
+                  }
+                  ...
+                  const mapStateToProps = (state) => (
+	            </code></pre>
+            </section>
+            <section>
+                <img src="https://media.giphy.com/media/8cgqFlUYWOdmqmsTbr/giphy.gif" data-no-style>
+                <aside class="notes">Redux passing props to children along so you can’t find the source (why not connect)</aside>
+            </section>
         </section>
         <section>
             Incorporating state and connect in the same component

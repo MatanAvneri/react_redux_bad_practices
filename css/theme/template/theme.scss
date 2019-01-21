@@ -275,6 +275,7 @@ body {
 	&[data-no-style] {
 		border: none;
 		background: transparent;
+		box-shadow: none;
 	}
 }
 
