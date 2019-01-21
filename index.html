@@ -40,7 +40,34 @@
                     }, 100)
                   }
 	        </code></pre>
-
+        </section>
+        <section>
+            <aside class="notes">Several issues, no default return. No use for a reducer, reducer should have logic</aside>
+            <h1>Reducers</h1>
+            <pre><code data-trim data-noescape>
+                reducer = (state, action) => {
+                    switch (action.type) {
+                    case types.SEARCH: {
+                        return {
+                            ...state,
+                            ...payload
+                        }
+                    }
+                    case types.UPDATE: {
+                        return {
+                            ...state,
+                            ...payload
+                        }
+                    }
+                    case types.CREATE: {
+                        return {
+                            ...state,
+                            ...payload
+                        }
+                    }
+                    }
+                }
+	        </code></pre>
         </section>
     </div>
 </div>
