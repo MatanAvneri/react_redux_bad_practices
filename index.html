@@ -36,6 +36,46 @@
         </section>
         <section>
             <section>
+                <aside class="notes">
+                    Each time render is called a new function is created
+                </aside>
+                <h1>React</h1>
+                <pre><code data-trim data-noescape>
+                  render () {
+                    return (
+                        &lt;div onClick={this.handleClick.bind(this)} />
+                    )
+                  }
+	            </code></pre>
+            </section>
+            <section>
+                <h1>React</h1>
+                <pre><code data-trim data-noescape>
+                    constructor (props) {
+                        super(props)
+                        this.handleClick = this.handleClick.bind(this)
+                    }
+                    render () {
+                        return (
+                            &lt;div onClick={this.handleClick} />
+                        )
+                    }
+	            </code></pre>
+            </section>
+            <section>
+                <h1>React</h1>
+                <pre><code data-trim data-noescape>
+                    handleClick = (e) => {
+                        ...
+                    }
+                    render () {
+                        return (
+                            &lt;div onClick={this.handleClick} />
+                        )
+                    }
+	            </code></pre>
+            </section>
+            <section>
                 <h1>React</h1>
                 <pre><code data-trim data-noescape>
                   componentDidMount () {
@@ -69,7 +109,8 @@
                 </h1>
             </section>
             <section>
-                <aside class="notes">Several issues, no default return. No use for a reducer, reducer should have logic
+                <aside class="notes">
+                    Several issues, no default return. No use for a reducer, reducer should have logic
                 </aside>
                 <h1>Reducers</h1>
                 <pre><code data-trim data-noescape>
