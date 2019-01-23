@@ -199,7 +199,8 @@
                 reducer = (state, action) => {
                     switch (action.type) {
                     case types.ARRAY_ADD: {
-                        const items = state.items.push(action.item);
+                        const items = state.items;
+                        items.push(action.item)
                         return {
                             ...state,
                             items: items
