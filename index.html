@@ -179,9 +179,8 @@
             <section>
                 <p>
                     From
-                    <a
-                            href="https://redux.js.org/faq/code-structure#how-should-i-split-my-logic-between-reducers-and-action-creators-where-should-my-business-logic-go"
-                            target="_blank">
+                    <a href="https://redux.js.org/faq/code-structure#how-should-i-split-my-logic-between-reducers-and-action-creators-where-should-my-business-logic-go"
+                       target="_blank">
                         redux documentation
                     </a>
                 </p>
@@ -284,6 +283,16 @@
         </section>
         <section>
             Incorporating state and connect in the same component
+            <pre><code data-trim data-noescape>
+                class Test extends Component {
+                    state = {
+                        counter: 1
+                    }
+                ...
+                }
+
+                connect(mapStateToProps, mapDispatchToProps)(Test)
+            </code></pre>
         </section>
         <section>
             <section>
