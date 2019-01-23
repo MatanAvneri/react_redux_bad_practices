@@ -234,6 +234,20 @@
                     <a href="https://facebook.github.io/immutable-js/docs/#/" target="_blank">Immutable.js</a>
                 </p>
             </section>
+            <section>
+                <h1>immer</h1>
+                <img src="lib/images/immer.png"/>
+            </section>
+            <section>
+                <h1>Immutable.js</h1>
+                <pre><code data-trim data-noescape>
+                    const { Map } = require('immutable');
+                    const map1 = Map({ a: 1, b: 2, c: 3 });
+                    const map2 = map1.set('b', 50);
+                    map1.get('b') + " vs. " + map2.get('b'); // 2 vs. 50
+                </code>
+                </pre>
+            </section>
         </section>
         <section>
             <section>
