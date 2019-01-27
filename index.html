@@ -282,6 +282,40 @@
                     <li><a href="http://getbem.com/" target="_blank">BEM</a></li>
                 </ul>
             </section>
+            <section>
+                <h1>Styled Components</h1>
+                <pre><code data-trim data-noescape>
+                const Button = styled.a`
+                  display: inline-block;
+                  ...
+                  border: 2px solid white;
+
+                  /* The GitHub button is a primary button
+                   * edit this to target it specifically! */
+                  ${props => props.primary && css`
+                    background: white;
+                    color: palevioletred;
+                  `}
+                `
+
+                render(
+                  &lt;div>
+                    &lt;Button
+                      href="https://github.com/styled-components/styled-components"
+                      target="_blank"
+                      rel="noopener"
+                      primary
+                    >
+                      GitHub
+                    &lt;/Button>
+
+                    &lt;Button as={Link} href="/docs" prefetch>
+                      Documentation
+                    &lt;/Button>
+                  &lt;/div>
+                )
+                </code></pre>
+            </section>
         </section>
         <section>
             <section>
