@@ -421,6 +421,17 @@
                     Selectors are composable. <!-- They can be used as input to other selectors. -->
                 </blockquote>
             </section>
+            <section>
+                <h1>State Read</h1>
+                <pre><code data-trim data-noescape>
+                import appSelectors from './'
+                ...
+                const mapStateToProps = state => ({
+                    environment: appSelectors.env(state)
+                });
+    	        </code></pre>
+            </section>
+
         </section>
         <section>
             <h1>Questions?</h1>
