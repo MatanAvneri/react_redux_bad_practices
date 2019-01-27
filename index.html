@@ -349,16 +349,16 @@
                 <h1>Thunk</h1>
                 <pre><code data-trim data-noescape>
                     export const fetchPayment = ({ paymentId }) => async dispatch => {
-                      dispatch({ type: FETCHING_PAYMENT, payload: true })
+                      <mark>dispatch({ type: FETCHING_PAYMENT, payload: true })</mark>
 
                       try {
                         const payment = await PaymentsApi.getPayment(paymentId)
 
-                        dispatch({ type: FETCH_PAYMENT, payload: payment.data })
+                        <mark>dispatch({ type: FETCH_PAYMENT, payload: payment.data })</mark>
                       } catch (error) {
-                        dispatch({ type: FETCH_ERROR, payload: error.message })
+                        <mark>dispatch({ type: FETCH_ERROR, payload: error.message })</mark>
                       }
-                      dispatch({ type: FETCHING_PAYMENT, payload: false })
+                      <mark>dispatch({ type: FETCHING_PAYMENT, payload: false })</mark>
                     };
                 </code></pre>
             </section>
@@ -367,16 +367,16 @@
                 <h1>Thunk</h1>
                 <pre><code data-trim data-noescape>
                     export const fetchPayment = ({ paymentId }) => async dispatch => {
-                      dispatch(actions.fetchingPayment(true))
+                      <mark>dispatch(actions.fetchingPayment(true))</mark>
 
                       try {
                         const payment = await PaymentsApi.getPayment(paymentId)
 
-                        dispatch(actions.fetchPaymentSuccess(payment.data))
+                        <mark>dispatch(actions.fetchPaymentSuccess(payment.data))</mark>
                       } catch (error) {
-                        dispatch(actions.fetchPaymentError(error.message))
+                        <mark>dispatch(actions.fetchPaymentError(error.message))</mark>
                       }
-                      dispatch(actions.fetchingPayment(false))
+                      <mark>dispatch(actions.fetchingPayment(false))</mark>
                     };
                 </code></pre>
             </section>
