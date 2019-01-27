@@ -191,7 +191,7 @@
             </section>
             <section>
                 <h1>Saga</h1>
-                <pre><code data-trim data-noescape=>
+                <pre><code data-trim data-noescape>
                     import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
                     import Api from '...'
 
@@ -225,6 +225,45 @@
                     }
 
                     export default mySaga;
+                </code></pre>
+            </section>
+            <section>
+                <h1>redux-observable</h1>
+                <blockquote>
+                    RxJS 6-based middleware for Redux. Compose and cancel async actions to create side effects and more.
+                </blockquote>
+            </section>
+            <section>
+                <h1>redux-observable</h1>
+                <pre><code data-trim data-noescape>
+                    const FETCH_USER = 'FETCH_USER';
+                    const FETCH_USER_FULFILLED = 'FETCH_USER_FULFILLED';
+
+                    const fetchUser = username => ({ type: FETCH_USER, payload: username });
+                    const fetchUserFulfilled = payload => ({ type: FETCH_USER_FULFILLED, payload });
+
+                    const fetchUserEpic = action$ => action$.pipe(
+                      ofType(FETCH_USER),
+                      mergeMap(action =>
+                        ajax.getJSON(`https://api.github.com/users/${action.payload}`).pipe(
+                          map(response => fetchUserFulfilled(response))
+                        )
+                      )
+                    );
+
+                    const users = (state = {}, action) => {
+                      switch (action.type) {
+                        case FETCH_USER_FULFILLED:
+                          return {
+                            ...state,
+                            // `login` is the username
+                            [action.payload.login]: action.payload
+                          };
+
+                        default:
+                          return state;
+                      }
+                    };
                 </code></pre>
             </section>
         </section>
